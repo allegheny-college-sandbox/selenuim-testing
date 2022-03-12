@@ -8,3 +8,4 @@ docs/style/play.css:
   MatchFileFragment --fragment "TODO" --count 0 --exact --description "[CSS] play.css contains no TODOs"
 
 ExecuteCommand "python config/.selenium.py hole-1.html" --description "[GOLF] Hole 1 complete"
+ExecuteCommand "python config/.selenium.py hole-2.html" --description "[GOLF] Hole 2 complete"

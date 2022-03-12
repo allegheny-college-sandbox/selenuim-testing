@@ -56,9 +56,9 @@ def main():
 
   target = driver.find_element(by=By.CSS_SELECTOR, value="#target")
   ball = driver.find_element(by=By.CSS_SELECTOR, value="#ball")
+  trap = driver.find_element(by=By.CSS_SELECTOR, value="#traps")
 
-  if evaluate(target, ball):
-    print("IN!")
+  if evaluate(target, ball) and not evaluate(trap, ball):
     sys.exit(0)
   sys.exit(1)
 
