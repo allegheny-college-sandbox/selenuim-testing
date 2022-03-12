@@ -31,6 +31,7 @@
           pip install bs4
           pip install requests
           pip install html5validator
+          pip install selenium
       - name: Grade repository
         run: |
           html5validator --root docs/
