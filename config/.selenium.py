@@ -1,10 +1,11 @@
 import os
 import math
 import sys
-#from uncertainties import ufloat
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
+from webdriver_manager.chrome import ChromeDriverManager
 
 class Circle:
 
@@ -38,7 +39,8 @@ def main():
 
   # Local Testing
   #driver = webdriver.Chrome("/home/dluman/chromedriver")
-
+  service = Service(ChromeDriverManager().install())
+  driver = webdriver.Chrome(service=service)
   driver.maximize_window()
 
   pages_api = os.getenv("PAGES_URL")
