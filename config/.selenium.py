@@ -56,14 +56,14 @@ def main():
   page = sys.argv[1]
 
   # Local Testing
-  driver.get(f"https://allegheny-college-sandbox.github.io/selenuim-testing/{page}")
-  #driver.get(f"{endpoint}{page}")
+  #driver.get(f"https://allegheny-college-sandbox.github.io/selenuim-testing/{page}")
+  driver.get(f"{endpoint}{page}")
 
   target = driver.find_element(by=By.CSS_SELECTOR, value="#target")
   ball = driver.find_element(by=By.CSS_SELECTOR, value="#ball")
 
   # Fail if ball is in a trap or water hazard
-  """
+
   try:
     trap = driver.find_element(by=By.CSS_SELECTOR, value="#traps")
     if not evaluate(trap, ball): sys.exit(1)
@@ -75,7 +75,7 @@ def main():
     if not evaluate(water, ball): sys.exit(1)
   except:
     print("No water hazards.")
-  """
+
   # Fail only if the ball isn't completely concentric to target
 
   if evaluate(target, ball):
