@@ -38,21 +38,19 @@ def evaluate(
 
 def main():
 
-  # Local Testing
-  driver = webdriver.Chrome("/home/dluman/chromedriver")
   service = Service(ChromeDriverManager().install())
   driver = webdriver.Chrome(service=service)
   driver.maximize_window()
 
-  #pages_api = os.getenv("PAGES_URL")
-  #data = json.loads(pages_api)
-  #endpoint = data["html_url"]
+  pages_api = os.getenv("PAGES_URL")
+  data = json.loads(pages_api)
+  endpoint = data["html_url"]
 
   page = sys.argv[1]
 
   # Local Testing
-  driver.get(f"https://allegheny-college-sandbox.github.io/selenuim-testing/{page}")
-  #driver.get(f"{endpoint}{page}")
+  #driver.get(f"https://allegheny-college-sandbox.github.io/selenuim-testing/{page}")
+  driver.get(f"{endpoint}{page}")
 
   target = driver.find_element(by=By.CSS_SELECTOR, value="#target")
   ball = driver.find_element(by=By.CSS_SELECTOR, value="#ball")
