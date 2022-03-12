@@ -22,6 +22,7 @@
         uses: actions/setup-python@v1
         with:
           python-version: 3.8
+      - uses: nanasess/setup-chromedriver@master
       - name: Set up grading environment
         run: |
           pip install --upgrade pip
@@ -31,7 +32,6 @@
           pip install requests
           pip install html5validator
       - name: Grade repository
-        uses: nanasess/setup-chromedriver@master
         run: |
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1
           html5validator --root docs/
