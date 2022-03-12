@@ -1,3 +1,9 @@
 #hole-1  #ball {
   margin: 10% auto;
 }
+
+#hole-2 #ball {
+  position: absolute;
+  top: 70%;
+  left: 60%;
+}
