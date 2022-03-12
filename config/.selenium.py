@@ -2,6 +2,7 @@ import os
 import math
 import sys
 import json
+import logging
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -38,38 +39,50 @@ def evaluate(
 
 def main():
 
-  service = Service(ChromeDriverManager().install())
-  driver = webdriver.Chrome(service=service)
-  driver.maximize_window()
+  # Run in headless mode
 
-  pages_api = os.getenv("PAGES_URL")
-  data = json.loads(pages_api)
-  endpoint = data["html_url"]
+  options = webdriver.ChromeOptions()
+  options.add_argument("--headless")
+  options.headless = True
+
+  service = Service(ChromeDriverManager().install())
+  driver = webdriver.Chrome(options=options, service=service)
+  #driver.maximize_window()
+
+  #pages_api = os.getenv("PAGES_URL")
+  #data = json.loads(pages_api)
+  #endpoint = data["html_url"]
 
   page = sys.argv[1]
 
   # Local Testing
-  #driver.get(f"https://allegheny-college-sandbox.github.io/selenuim-testing/{page}")
-  driver.get(f"{endpoint}{page}")
+  driver.get(f"https://allegheny-college-sandbox.github.io/selenuim-testing/{page}")
+  #driver.get(f"{endpoint}{page}")
 
   target = driver.find_element(by=By.CSS_SELECTOR, value="#target")
   ball = driver.find_element(by=By.CSS_SELECTOR, value="#ball")
 
+  # Fail if ball is in a trap or water hazard
+  """
   try:
     trap = driver.find_element(by=By.CSS_SELECTOR, value="#traps")
     if not evaluate(trap, ball): sys.exit(1)
   except:
-    pass
+    print("No traps.")
 
   try:
     water = driver.find_element(by=By.CSS_SELECTOR, value="#water")
     if not evaluate(water, ball): sys.exit(1)
   except:
-    pass
+    print("No water hazards.")
+  """
+  # Fail only if the ball isn't completely concentric to target
 
-  if not evaluate(target, ball):
-    sys.exit(1)
-  print("IN!")
+  if evaluate(target, ball):
+    print("Ball is concentric to target.")
+    sys.exit(0)
+  print("Ball is not concentric to target.")
+  sys.exit(1)
 
-if __name__=="__main__":
+if __name__ == "__main__":
   main()

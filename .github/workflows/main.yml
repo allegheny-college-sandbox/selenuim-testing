@@ -34,11 +34,13 @@
       - name: Grade repository
         run: |
           source config/.pages.sh
+          python config/.selenium.py hole-1.html
+          python config/.selenium.py hole-2.html
           gradle grade
         if: always()
         env:
          DISPLAY: :99
          PIPENV_VENV_IN_PROJECT: 1
          PIPENV_IGNORE_VIRTUALENVS: 1
-
+         WDM_LOG_lEVEL: 0
 
