@@ -1,0 +1,54 @@
+---
+name: CMPSC 302: Basic Styling (exercises)
+break: true
+indent: 4
+---
+
+docs/style/recipe-style.css:
+    MatchFileFragment --fragment "TODO" --count 0 --exact --description "[CSS] recipe-style.css no TODOs exist"
+    MatchFileRegex --regex "#container(\s)?\{.*\}" --count 1 --description "[CSS] recipe-style.css styles the container id"
+    MatchFileRegex --regex "\.detail\-text(\s)?\{.*\}" --count 1 --description "[CSS] recipe-style.css styles the detail-text class"
+    MatchFileRegex --regex "\.detail\-label(\s)?\{.*\}" --count 1 --description "[CSS] recipe-style.css styles the detail-label class"
+    MatchFileRegex --regex "h1.*(\s)?\{.*\}" --count 1 --exact --description "[CSS] recipe-style.css <h1> element styled"
+    MatchFileRegex --regex "a.*\{.*\}" --count 1 --description "[CSS] recipe-style.css <a> elements styled"
+    MatchFileRegex --regex "section(\s)?\{.*\}" --count 1 --exact --description "[CSS] recipe-style.css <section> elements styled"
+    MatchFileRegex --regex "footer(\s)?\{.*\}" --count 1 --exact --description "[CSS] recipe-style.css <footer> element styled"
+    MatchFileFragment --fragment "font-family" --count 1 --description "[CSS} recipe-style.css some element styles the font-family"
+
+docs/lorem-ipsum.html:
+    MatchFileFragment --fragment "TODO" --count 0 --exact --description "[HTML] lorem-ipsum.html no TODOs exist"
+
+docs/0-recipe.html:
+    MatchFileFragment --fragment "TODO" --count 0 --exact --description "[HTML] 0-recipe.html no TODOs exist"
+    MatchFileRegex --regex "id(\s)?\=.*container.*" --count 1 --exact --description "[HTML] 0-recipe.html contains the container ID"
+    MatchFileRegex --regex "class(\s)?\=(\s)?.*detail\-label.*" --count 1 --description "[HTML] 0-recipe.html contains the detail-label class"
+    MatchFileRegex --regex "class(\s)?\=(\s)?.*detail\-text.*" --count 1 --description "[HTML] 0-recipe.html contains the detail-text class"
+
+docs/1-recipe.html:
+    MatchFileFragment --fragment "TODO" --count 0 --exact --description "[HTML] 1-recipe.html no TODOs exist"
+    MatchFileRegex --regex "id(\s)?\=.*container.*" --count 1 --exact --description "[HTML] 1-recipe.html contains the container ID"
+    MatchFileRegex --regex "class(\s)?\=(\s)?.*detail\-label.*" --count 1 --description "[HTML] 1-recipe.html contains the detail-label class"
+    MatchFileRegex --regex "class(\s)?\=(\s)?.*detail\-text.*" --count 1 --description "[HTML] 1-recipe.html contains the detail-text class"
+    MatchFileRegex --regex "href(\s)?\=(\s)?.*recipe\-style.css" --count 1 --exact --description "[HTML] 1-recipe.html references the recipe-style.css file"
+  
+docs/style/lorem-style.css:
+    MatchFileFragment --fragment "TODO" --count 0 --exact --description "[CSS] lorem-style.css no TODOs exist"
+    MatchFileRegex --regex "html(\s)?\{.*\}" --count 1 --exact --description "[CSS] lorem-style.css <html> root element styled"
+    MatchFileRegex --regex "body(\s)?\{.*\}" --count 1 --exact --description "[CSS] lorem-style.css <body> element styled"
+    MatchFileRegex --regex "h1(\s)?\{.*\}" --count 1 --exact --description "[CSS] lorem-style.css <h1> element styled"
+    MatchFileRegex --regex "a.*\{.*\}" --count 1 --description "[CSS] lorem-style.css <a> elements styled"
+    MatchFileRegex --regex "div(\s)?\{.*\}" --count 1 --exact --description "[CSS] lorem-style.css <div> elements styled"
+    MatchFileRegex --regex "p(\s)?\{.*\}" --count 1 --exact --description "[CSS] lorem-style.css <p> elements styled"
+    MatchFileFragment --fragment "background" --count 1 --description "[CSS] lorem-style.css some element sets background color"
+    MatchFileFragment --fragment "color" --count 1 --description "[CSS] lorem-style.css some element sets the type color"
+    MatchFileFragment --fragment "font-family" --count 1 --description "[CSS] lorem-style.css some element styles the font-family"
+
+ExecuteCommand --command "python config/.w3c.py 0-recipe.html" --description "[HTML] 0-recipe.html passes W3C validation"
+ExecuteCommand --command "python config/.w3c.py lorem-ipsum.html" --description "[HTML] lorem-ipsum.html passes W3C validation"
+ExecuteCommand --command "python config/.w3c.py style/lorem-style.css" --description "[CSS] lorem-style.css passes W3C validation"
+ExecuteCommand --command "python config/.w3c.py style/recipe-style.css" --description "[CSS] recipe-style.css passes W3C validation"
+ExecuteCommand --command "python config/.check.py docs/0-recipe.html link 1" --description "[HTML] 0-recipe.html contains at least one <link> element to a stylesheet"
+ExecuteCommand --command "python config/.check.py docs/lorem-ipsum.html link 1" --description "[HTML] lorem-ipsum.html contains at least one <link> element to stylesheet"
+ExecuteCommand --command "python config/.check.py docs/lorem-ipsum.html em strong 2" --description "[HTML] lorem-ipsum.html contains at least two <em> and <strong> elements"
+ExecuteCommand --command "python config/.check.py docs/1-recipe.html link 1" --description "[HTML] 1-recipe.html contains at least one <link> element to a stylesheet"
+ExecuteCommand --command "python config/.check.py docs/1-recipe.html footer 1" --description "[HTML] 1-recipe.html contains a <footer> element"
