@@ -34,8 +34,7 @@
       - name: Grade repository
         run: |
           source config/.pages.sh
-          html5validator --root docs/
-          python config/.selenium.py hole-1.html
+          gradle grade
         if: always()
         env:
          DISPLAY: :99
