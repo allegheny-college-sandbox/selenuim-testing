@@ -10,9 +10,6 @@
   jobs:
     grade:
       runs-on: ubuntu-latest
-      services:
-        selenium:
-          image: selenium/standalone-chrome
       steps:
       - uses: actions/checkout@v2
         with: 
@@ -33,12 +30,14 @@
           pip install html5validator
           pip install selenium
           pip install webdriver_manager
+          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
       - name: Grade repository
         run: |
           html5validator --root docs/
           python config/.selenium.py
         if: always()
-        env:   
+        env:
+         DISPLAY: :99
          PIPENV_VENV_IN_PROJECT: 1
          PIPENV_IGNORE_VIRTUALENVS: 1
 
