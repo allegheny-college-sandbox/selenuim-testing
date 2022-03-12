@@ -3,3 +3,6 @@ name: CMPSC 302 Open
 break: true
 indent: 4
 ---
+
+docs/style/play.css:
+  MatchFileFragment --fragment "TODO" --count 0 --exact --description "[CSS] play.css contains no TODOs"

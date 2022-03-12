@@ -12,4 +12,4 @@ driver.get(endpoint + "hole-1.html")
 
 ball = driver.find_element_by_css_selector("#ball")
 
-print(ball)
+print(ball.location)
