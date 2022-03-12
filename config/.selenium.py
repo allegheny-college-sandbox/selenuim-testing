@@ -56,9 +56,20 @@ def main():
 
   target = driver.find_element(by=By.CSS_SELECTOR, value="#target")
   ball = driver.find_element(by=By.CSS_SELECTOR, value="#ball")
-  trap = driver.find_element(by=By.CSS_SELECTOR, value="#traps")
 
-  if evaluate(target, ball) and not evaluate(trap, ball):
+  try:
+    trap = driver.find_element(by=By.CSS_SELECTOR, value="#traps")
+    if not evaluate(trap, ball): sys.exit(1)
+  except:
+    pass
+
+  try:
+    water = driver.find_element(by=By.CSS_SELECTOR, value="#water")
+    if not evaluate(water, ball): sys.exit(1)
+  except:
+    pass
+
+  if evaluate(target, ball):
     sys.exit(0)
   sys.exit(1)
 
