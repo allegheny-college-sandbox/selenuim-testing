@@ -5,7 +5,7 @@ indent: 4
 ---
 
 docs/style/play.css:
-  MatchFileFragment --fragment "TODO" --count 0 --exact --description "[CSS] play.css contains no TODOs"
+    MatchFileFragment --fragment "TODO" --count 0 --exact --description "[CSS] play.css contains no TODOs"
 
 ExecuteCommand "html5validator --root docs/" --description "[HTML] The docs/ directory passes W3C validation"
 ExecuteCommand "html5validator --root docs/ --skip-non-css" --description "[CSS] The docs/ directory passes W3C validation"
