@@ -35,7 +35,7 @@
         run: |
           source config/.pages.sh
           html5validator --root docs/
-          python config/.selenium.py
+          python config/.selenium.py hole-1.html
         if: always()
         env:
          DISPLAY: :99
