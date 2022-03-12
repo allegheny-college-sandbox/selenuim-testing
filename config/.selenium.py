@@ -49,9 +49,9 @@ def main():
   driver = webdriver.Chrome(options=options, service=service)
   #driver.maximize_window()
 
-  #pages_api = os.getenv("PAGES_URL")
-  #data = json.loads(pages_api)
-  #endpoint = data["html_url"]
+  pages_api = os.getenv("PAGES_URL")
+  data = json.loads(pages_api)
+  endpoint = data["html_url"]
 
   page = sys.argv[1]
 
