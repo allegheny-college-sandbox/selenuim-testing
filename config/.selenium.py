@@ -2,6 +2,7 @@ import os
 import math
 import sys
 import json
+import logging
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -15,6 +16,9 @@ class Circle:
     self.h = size["height"]
 
     self.radius = self.w // 2
+
+    # Get center-top point; guaranteed to be on a circular
+    # element, which is really a box which is really a circle
 
     self.x = loc["x"] + self.radius
     self.y = loc["y"] + self.radius
@@ -38,11 +42,15 @@ def evaluate(
 
 def main():
 
-  # Local Testing
-  #driver = webdriver.Chrome("/home/dluman/chromedriver")
+  # Run in headless mode
+
+  options = webdriver.ChromeOptions()
+  options.add_argument("--headless")
+  options.headless = True
+
   service = Service(ChromeDriverManager().install())
-  driver = webdriver.Chrome(service=service)
-  driver.maximize_window()
+  driver = webdriver.Chrome(options=options, service=service)
+  #driver.maximize_window()
 
   pages_api = os.getenv("PAGES_URL")
   data = json.loads(pages_api)
@@ -51,16 +59,33 @@ def main():
   page = sys.argv[1]
 
   # Local Testing
-  #driver.get("https://allegheny-college-sandbox.github.io/selenuim-testing/" + "hole-1.html")
+  #driver.get(f"https://allegheny-college-sandbox.github.io/selenuim-testing/{page}")
   driver.get(f"{endpoint}{page}")
 
   target = driver.find_element(by=By.CSS_SELECTOR, value="#target")
   ball = driver.find_element(by=By.CSS_SELECTOR, value="#ball")
 
+  # Fail if ball is in a trap or water hazard
+
+  try:
+    trap = driver.find_element(by=By.CSS_SELECTOR, value="#traps")
+    if not evaluate(trap, ball): sys.exit(1)
+  except:
+    print("No traps.")
+
+  try:
+    water = driver.find_element(by=By.CSS_SELECTOR, value="#water")
+    if not evaluate(water, ball): sys.exit(1)
+  except:
+    print("No water hazards.")
+
+  # Fail only if the ball isn't completely concentric to target
+
   if evaluate(target, ball):
-    print("IN!")
+    print("Ball is concentric to target.")
     sys.exit(0)
+  print("Ball is not concentric to target.")
   sys.exit(1)
 
-if __name__=="__main__":
+if __name__ == "__main__":
   main()

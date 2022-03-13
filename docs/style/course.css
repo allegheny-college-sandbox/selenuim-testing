@@ -28,23 +28,17 @@ footer {
 #target {
   background: #222;
   max-height: 250px;
-  width: 250px;
-  border-radius: 250px;
+  max-width: 200px;
+  border-radius: 100%;
 }
 
 #ball {
   background: #FFF;
   max-height: 200px;
-  border-radius: 200px;
+  max-width: 200px;
+  border-radius: 100%;
   opacity: .9;
   text-transform: lowercase;
-}
-
-#traps {
-
-}
-
-#lakes {
 }
 
 #par {
@@ -73,14 +67,14 @@ footer {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 250px;
-  height: 250px;
+  width: 25%;
+  height: 25%;
   transform: translate(-50%, -50%);
 }
 
 #hole-1 #ball {
-  width: 200px;
-  height: 200px;
+  width: 80%;
+  height: 80%;
 }
 
 /* HOLE 2 */
@@ -89,38 +83,80 @@ footer {
   position: absolute;
   top: 70%;
   left: 60%;
-  height: 100px;
-  width: 100px;
-  border-radius: 100px;
+  height: 20%;
+  width: 11%;
 }
 
 #hole-2 #ball {
-  width: 95px;
-  height:95px;
-  border-radius: 95px;
+  width: 8%;
+  height: 15%;
 }
 
-#hole-2  .sandtrap {
+#hole-2 .traps {
   position: absolute;
-  left: 5%;
-  top: 20%;
-  height: 200px;
-  border-radius: 200px;
-  counter-increment: trap;  
+  top: 40%;
+  left: 20%;
+  width: 40%;
+  height: 50%;
+  overflow: visible;
+}
+
+#hole-2 .sandtrap {
+  position: relative;
+  transform: rotate(20deg);
   width: 100%;
   height: 100%;
+  border-radius: 50% 25% 75% / 50%;
 }
 
-#hole-2 .sandtrap > .sandtrap:nth-child(2) {
-  top: -80%;
-  left: 50%;
-  width:50%;
-}
+/* HOLE 3 */
 
-#hole-2 #traps {
+#hole-3 .traps.lake {
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 20%;
   width: 20%;
-  height:10%;
+  height: 30%;
+  overflow: visible;
+}
+
+#hole-3 .water {
+  position: relative;
+  transform: rotate(-60deg);
+  width: 100%;
+  height: 100%;
+  border-radius: 92% 35% 65% 163% / 40% 83% 119% 223%
+}
+
+#hole-3 .traps.sand {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 30%;
+  height: 40%;
+  overflow: visible;
+}
+
+#hole-3 .sandtrap {
+  position: relative;
+  transform: rotate(20deg);
+  width: 100%;
+  height: 100%;
+  border-radius: 50% 25% / 80%;
+}
+
+#hole-3 #target {
+  position: absolute;
+  top: 70%;
+  left: 10%;
+  height: 10vw;
+  width: 10vw;
+}
+
+#hole-3 #ball {
+  width: 6vw;
+  height: 6vw;
+  right:0;
+  top:10%;
+  position: absolute;
 }
