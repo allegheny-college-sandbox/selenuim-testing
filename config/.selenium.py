@@ -17,6 +17,9 @@ class Circle:
 
     self.radius = self.w // 2
 
+    # Get center-top point; guaranteed to be on a circular
+    # element, which is really a box which is really a circle
+
     self.x = loc["x"] + self.radius
     self.y = loc["y"] + self.radius
 
