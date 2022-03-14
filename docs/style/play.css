@@ -3,7 +3,39 @@
 }
 
 #hole-2 #ball {
-  position: absolute;
   top: 72.5%;
   left: 61.5%;
+}
+
+#hole-3 #ball {
+  left: 12%;
+  top: 73.75%;
+}
+
+#hole-4 #ball {
+  top: 1vw;
+  left: 1vw;
+}
+
+#hole-5 #ball {
+  right: 4vw;
+  position: absolute;
+  left: unset;
+  top: 17vw;
+}
+
+#hole-6 #ball {
+
+}
+
+#hole-7 #ball {
+
+}
+
+#hole-8 #ball {
+
+}
+
+#hole-9 #ball {
+
 }
