@@ -34,8 +34,6 @@
       - name: Grade repository
         run: |
           source config/.pages.sh
-          python config/.selenium.py hole-1.html
-          python config/.selenium.py hole-2.html
           gradle grade
         if: always()
         env:
