@@ -47,8 +47,9 @@
   height: 1vw;
 }
 
-#hole-8 #ball {
+#hole-8 #target {
   /* HINT -- MOVE THE TARGET */
+  left: 50%;
 }
 
 #hole-9 #ball {
