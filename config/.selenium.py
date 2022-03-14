@@ -52,16 +52,20 @@ def main():
   driver = webdriver.Chrome(options=options, service=service)
   #driver.maximize_window()
 
+  page = sys.argv[1]
+
+  print(page)
+
   pages_api = os.getenv("PAGES_URL")
   data = json.loads(pages_api)
   endpoint = data["html_url"]
 
-  page = sys.argv[1]
-
   # Local Testing
   #driver.get(f"https://allegheny-college-sandbox.github.io/selenuim-testing/{page}")
   driver.get(f"{endpoint}{page}")
+
   print(f"{endpoint}{page}")
+
   target = driver.find_element(by=By.CSS_SELECTOR, value="#target")
   ball = driver.find_element(by=By.CSS_SELECTOR, value="#ball")
 
