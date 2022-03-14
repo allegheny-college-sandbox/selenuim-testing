@@ -172,10 +172,16 @@ footer {
 
 /* HOLE 4 */
 
+#hole-4 {
+  overflow: visible;
+}
+
 #hole-4 #target{
   position: absolute;
   margin: 0 auto;
-  transform: translate(50vw, 23vw);
+  top: 50%;
+  left: 50%; 
+  transform: translateY(-50%);
   width: 10vw;
   height: 10vw;
 }
@@ -184,6 +190,8 @@ footer {
   height: 8vw;
   width: 8vw;
   top: 10vw;
+  left: 10vw;
+  position: absolute;
 }
 
 #hole-4 .traps.lake {
@@ -232,6 +240,10 @@ footer {
 
 /* HOLE 5 */
 
+#hole-5 {
+  overflow: visible;
+}
+
 #hole-5 #tee {
   position: static;
   width: 50vw;
@@ -251,7 +263,6 @@ footer {
 #hole-5 #ball {
   position: relative;
   top: 10vw;
-  left: 2vw;
   width: 4vw;
   height: 4vw;
 }
@@ -268,7 +279,7 @@ footer {
 
 #hole-6 #ball {
   position: absolute;
-  top: 23vw;
+  top: 25.5vw;
   width: 10vw;
   height: 10vw;
 }
@@ -323,15 +334,15 @@ footer {
 }
 
 #hole-6 .traps.sand {
-  position: absolute;
-  top: 50%;
+  position: fixed;
+  top: 37vw; 
   width: 100vw;
   height: 100vw;
 }
 
 #hole-6 .traps.sand > .sandtrap {
   position: absolute;
-  height: 20%;
+  height: 12%;
   width: 20%;
   transform: rotate(15deg);
   border-radius: 25% 50% 50% 25% / 25%;
@@ -366,3 +377,90 @@ footer {
   transform: rotate(15deg);
   border-radius: 25% 50% 50% 25% / 25%;
 }
+
+/* HOLE 7 */
+
+#hole-7 {
+  height: 100vh;
+  margin: 0;
+}
+
+#hole-7 #target {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto; 
+  height: 10vw;
+  width: 10vw;
+}
+
+#hole-7 #ball {
+  height: 5vw;
+  width: 5vw;
+  position: fixed;
+}
+
+#hole-7 .traps.lake {
+  position: absolute;
+  width: 20%;
+  left: 29%;
+  top: 50%;
+  transform: rotate(-25deg) translateY(-50%);
+}
+
+#hole-7 .traps.lake > .water {
+  height: 30vw;
+  width: 20vw;
+  border-radius: 49% 30% 62% 10% / 25%;
+}
+
+#hole-7 .traps.sand {
+  position: absolute;
+  width: 20%;
+  right: 30%;
+  top: 50%;
+  transform: rotate(25deg) translateY(-50%);
+}
+
+#hole-7 .traps.sand > .sandtrap {
+  height: 30vw;
+  width: 30vw;
+  border-radius: 49% 30% 62% 10% / 25%;
+}
+
+/* HOLE 8 */
+
+#hole-8 {
+  height: 100vh;
+}
+
+#hole-8 #ball {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  height: 20vw;
+  width: 20vw;
+}
+
+
+#hole-8 #target {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 5vw;
+  width: 5vw;
+}
+
+/* HOLE 9 */
+
+/* 
+  TODO:
+  
+  Position target
+  Position ball
+  Make hazards
+
+  (Use the above as a guide!)
+
+*/
