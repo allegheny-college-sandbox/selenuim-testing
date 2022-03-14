@@ -7,3 +7,50 @@
   top: 11vw;
   left: 11vw;
 }
+
+#hole-3 #ball {
+  left: 12%;
+  top: 73.75%;
+}
+
+#hole-4 #ball {
+  top: 42%;
+  left: 52%;
+}
+
+#hole-5 #ball {
+  right: 4vw;
+  position: absolute;
+  top: 17vw;
+}
+
+#hole-6 #ball {
+  right: 0.5vw;
+  top: 17.5vw;
+}
+
+#hole-7 #ball {
+  top: 50%;
+  position: relative;
+  margin: 0 auto;
+  transform: translateY(-247%);
+}
+
+#hole-8 #ball {
+  /* 
+    HINT 
+    
+    RESIZE THE BALL
+    MOVE BALL INTO TARGET IN HTML 
+  */
+  width: 1vw;
+  height: 1vw;
+}
+
+#hole-8 #ball {
+  /* HINT -- MOVE THE TARGET */
+}
+
+#hole-9 #ball {
+
+}
