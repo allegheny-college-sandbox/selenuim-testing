@@ -1,9 +1,9 @@
 #hole-1  #ball {
-  margin: 10% auto;
+  margin: 15% auto;
 }
 
 #hole-2 #ball {
   position: absolute;
-  top: 72.5%;
-  left: 61.5%;
+  top: 11vw;
+  left: 11vw;
 }

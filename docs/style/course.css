@@ -7,6 +7,7 @@ html {
 
 body {
   counter-reset: trap;
+  overflow: hidden;
 }
 
 footer {
@@ -27,15 +28,11 @@ footer {
 
 #target {
   background: #222;
-  max-height: 250px;
-  max-width: 200px;
   border-radius: 100%;
 }
 
 #ball {
   background: #FFF;
-  max-height: 200px;
-  max-width: 200px;
   border-radius: 100%;
   opacity: .9;
   text-transform: lowercase;
@@ -67,29 +64,40 @@ footer {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 25%;
-  height: 25%;
+  width: 10vw;
+  height: 10vw;
   transform: translate(-50%, -50%);
 }
 
 #hole-1 #ball {
-  width: 80%;
-  height: 80%;
+  width: 70%;
+  height: 70%;
 }
 
 /* HOLE 2 */
 
 #hole-2 #target {
-  position: absolute;
-  top: 70%;
-  left: 60%;
-  height: 20%;
-  width: 11%;
+  height: 10vw;
+  width: 10vw;
 }
 
 #hole-2 #ball {
-  width: 8%;
-  height: 15%;
+  position: fixed;
+  width: 8vw;
+  height: 8vw;
+  bottom: -34%;
+}
+
+#hole-2 #tee {
+  position: absolute;
+  left: 40%;
+  top: 20%;
+  padding: 10%;
+  border-radius: 20% 50% 60% / 33%;
+  transform: rotate(30deg);
+  width: 30%;
+  height: 20%;
+  z-index: 10;
 }
 
 #hole-2 .traps {
